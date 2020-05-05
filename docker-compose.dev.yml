@@ -46,12 +46,14 @@ services:
     environment:
       - SERVER_ADDRESS=http://172.17.0.1
       - PRIVATE_KEY=/go/src/github.com/shellhub-io/shellhub/agent/shellhub.key
-      - TENANT_ID=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+      - TENANT_ID=34feb4da-4300-4691-9991-23970c16ced6
       - SHELLHUB_VERSION=${SHELLHUB_VERSION}
     volumes:
       - ./agent:/go/src/github.com/shellhub-io/shellhub/agent
       - ./pkg:/go/src/github.com/shellhub-io/shellhub/pkg
       - /:/host
+      - /etc/passwd:/etc/passwd
+      - /etc/group:/etc/group
     depends_on:
       - api
       - ssh
